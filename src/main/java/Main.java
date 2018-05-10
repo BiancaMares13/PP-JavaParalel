@@ -22,10 +22,10 @@ public class Main {
 
 
 
-        Thread t0=new WolstenholmePrimesThread(0, 7,n);
-        Thread t1=new WolstenholmePrimesThread(1, 8,n);
-        Thread t2=new WolstenholmePrimesThread(2, 9,n);
-        Thread t3=new WolstenholmePrimesThread(3, 10,n);
+        Thread t0=new WolstenholmePrimesThread(0, 1,n);
+        Thread t1=new WolstenholmePrimesThread(1, 2,n);
+        Thread t2=new WolstenholmePrimesThread(2, 3,n);
+        Thread t3=new WolstenholmePrimesThread(3, 4,n);
 
         t1.start();
         t2.start();
