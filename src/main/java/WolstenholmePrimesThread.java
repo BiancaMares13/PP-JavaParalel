@@ -27,19 +27,17 @@ public class WolstenholmePrimesThread extends Thread {
             }
         }
 
-
       Main.primes[1]=false;
 
         BigInteger numerator;
         BigInteger denominator;
         int lastIndexFromHarmonicSum=0;
+        numerator = BigInteger.ONE;
+        denominator = BigInteger.ONE;
         for (int i = a; i <= b; i += 4) {
-            numerator = BigInteger.ONE;
-            denominator = BigInteger.ONE;
+
 
             BigInteger numeratorPrev;
-
-
             if(i==a) {
                 if (i > 1) {
                     for (int j = 2; j < i; j++) {
@@ -49,11 +47,8 @@ public class WolstenholmePrimesThread extends Thread {
                         numerator = numeratorPrev.multiply(lcm.divide(denominator)).add(lcm.divide(currentNumber));
                         denominator = lcm;
                     }
-
-
                 }
                 lastIndexFromHarmonicSum = i;
-
             }
             if (Main.primes[i]) {
                 BigInteger prime = BigInteger.valueOf(i);
@@ -63,21 +58,13 @@ public class WolstenholmePrimesThread extends Thread {
                 BigInteger lcm = (denominator.multiply(currentNumber)).divide(denominator.gcd(currentNumber));
                 numeratorPrev = numerator;
 
-                    numerator = numeratorPrev.multiply(lcm.divide(denominator)).add(lcm.divide(currentNumber));
+                numerator = numeratorPrev.multiply(lcm.divide(denominator)).add(lcm.divide(currentNumber));
 
                 denominator = lcm;
-
-
             }
 
-
-
                 BigInteger mod = numerator.mod(prime.pow(3));
-                if(i==16843){
-                    System.out.println("hndkjdfhsj  bmod "+mod);
-                    System.out.println(prime);
-                    System.out.println(prime.pow(3));
-                }
+
                 if (mod.equals(BigInteger.ZERO)) {
                     System.out.println(i+"  by thread    "+idThread);
                     Main.results.get(idThread).add(BigInteger.valueOf(i));

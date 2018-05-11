@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Main {
 
 
-    public static int n=16848 ;
+    public static int n=2124680 ;
     private static int numberOfThreads=4;
     public static ArrayList<ArrayList<BigInteger>> results=new ArrayList<ArrayList<BigInteger>>();
     public static boolean primes[]=new boolean[n+1];
@@ -16,11 +16,11 @@ public class Main {
             results.add(new ArrayList<BigInteger>());
         }
 
-        long startTime = System.currentTimeMillis();
+
         for(int i=0;i<n;i++)
             primes[i] = true;
 
-
+        long startTime = System.currentTimeMillis();
 
         Thread t0=new WolstenholmePrimesThread(0, 1,n);
         Thread t1=new WolstenholmePrimesThread(1, 2,n);
